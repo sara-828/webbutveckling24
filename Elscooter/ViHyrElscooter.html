@@ -7,6 +7,9 @@
 <body>
     <h1>Vi Hyr Dig en elScooter</h1>
     <h2 id="welcome"></h2>
+    <p>Klicka </p>
+
+    <button id="hyr">Hyr</button>
 
     <script>
         //Tar ut URL:en så vi kan hämta 
@@ -16,6 +19,12 @@
         if(username){
             text.textContent = `Välkommen ${username}!`;
         } 
+
+        const hyr = getElementById('hyr');
+
+        hyr.addEventListener('click', function(event){
+
+        })
 
     </script>
     
