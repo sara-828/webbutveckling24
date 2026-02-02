@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViHyrDigenelScooter.se</title>
+</head>
+<body>
+    <h1>Vi Hyr Dig en elScooter.se</h1>
+    <h2>Logga in</h2>
+
+    
+    <form id="myform">
+        <label for="användarnamn">Avändarnamn:</label>
+        <input type="text" id="användarnamn" name="användarnamn">
+        <br>
+        <label for="lösenord">Lösenord:</label>
+        <input type="lösenord" id="lösenord" name="lösenord">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+        
+
+
+
+    
+</body>
+<script>
+    
+    let användarnamn = null;
+
+    const form = document.getElementById('myform');
+
+    form.addEventListener('submit', function (event){
+        event.preventDefault();
+
+        const text = document.getElementById('användarnamn').value;
+        const lösenord = document.getElementById('lösenord').value;
+
+        console.log(text + lösenord);
+
+        if(text == "a" && lösenord == "a"){
+                användarnamn = text;
+                //window.location.href = `javascript exempel 4,2.html?username=${encodeURIComponent(username)}`;
+                window.location.href = `ViHyrElscooter.html?username=${encodeURIComponent(användarnamn)}`;
+            }
+            else{
+                alert("Fel användarnamn eller lösenord!");
+            }
+
+    });
+
+</script>
+</html>
