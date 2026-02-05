@@ -2,12 +2,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="elscooter.css">
     <title>Document</title>
 </head>
 <body>
     <h1>Vi Hyr Dig en elScooter</h1>
     <h2 id="welcome"></h2>
-    <p>Klicka </p>
+    <div id="box">
+    <p id="texta"></p>
+    <p id="tid"></p>
+    </div>
 
     <button id="hyr">Hyr</button>
 
@@ -20,11 +24,42 @@
             text.textContent = `Välkommen ${username}!`;
         } 
 
-        const hyr = getElementById('hyr');
+        const hyr = document.getElementById('hyr');
+        const texta = document.getElementById('texta');
+        let idag = new Date().toLocaleDateString();
+        let klockslag = new Date().toLocaleTimeString();
+
+        let timerId = null;
+        let on = true;
+        let utText = 0;
+        let tid = document.getElementById('tid');
 
         hyr.addEventListener('click', function(event){
+            
+            texta.textContent = "datum av uthyrning " + idag + "klockan " +  klockslag;
+             hyr.textContent = "sluta hyra";
+
+            if (on) {
+
+                on = false;
+                timerId = setInterval(function () {
+                    utText ++;
+                    tid.textContent = utText;
+                   
+
+                }, 1000);
+            } else {
+                clearInterval(timerId);
+                on = true;
+                hyr.textContent = "hyr";
+                utText = 0;
+            }
 
         })
+
+
+
+        
 
     </script>
     
