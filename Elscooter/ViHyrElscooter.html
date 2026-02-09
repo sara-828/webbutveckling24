@@ -6,17 +6,30 @@
     <title>Document</title>
 </head>
 <body>
+    <header id="header">
+        
+    </header>
+
+
+    <div id="hero">
     <h1>Vi Hyr Dig en elScooter</h1>
     <h2 id="welcome"></h2>
+    
     <div id="box">
-    <p id="texta"></p>
-    <p id="tid"></p>
+        <p> Hyr en elscooter</p>
+        <p id="texta"></p> 
+        <p id="tid"></p>
+        
     </div>
+    </div>
+   
 
     <button id="hyr">Hyr</button>
 
+    <p id="info"></p>
+
     <script>
-        //Tar ut URL:en så vi kan hämta 
+
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById("welcome");
         let username = params.get('username');
@@ -26,33 +39,49 @@
 
         const hyr = document.getElementById('hyr');
         const texta = document.getElementById('texta');
+        const info = document.getElementById('info');
+
         let idag = new Date().toLocaleDateString();
         let klockslag = new Date().toLocaleTimeString();
 
         let timerId = null;
-        let on = true;
-        let utText = 0;
+        let hyrt = true;
+        let sekunder = 0;
+        let a = 0;
+        
         let tid = document.getElementById('tid');
+        const header = document.getElementById('header');
 
         hyr.addEventListener('click', function(event){
+
+            header.classList.toggle('stil');
             
-            texta.textContent = "datum av uthyrning " + idag + "klockan " +  klockslag;
+            texta.textContent = "datum av uthyrning " + idag + " klockan " +  klockslag;
              hyr.textContent = "sluta hyra";
+            
 
-            if (on) {
+            if (hyrt) {
 
-                on = false;
+                hyrt = false;
                 timerId = setInterval(function () {
-                    utText ++;
-                    tid.textContent = utText;
+                    sekunder ++;
+                    tid.textContent = sekunder;
+                    a++;
                    
 
                 }, 1000);
             } else {
                 clearInterval(timerId);
-                on = true;
+                hyrt = true;
                 hyr.textContent = "hyr";
-                utText = 0;
+                
+                
+                //info.textContent = "t" + idag + " " + klockslag + " " + sekunder;
+                info.textContent = ` aaaaa ${idag}
+                ${klockslag} `
+                sekunder = 0;
+
+
             }
 
         })

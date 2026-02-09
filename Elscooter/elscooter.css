@@ -8,10 +8,13 @@ h1, h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    /*background-color: #7EA05C;*/
+    /*background-color: #7EA05C; background-color: #768666;*/
+    
+    
 }
 button{
     border-color:#2C3325;
+    width: 300px;
 }
 #myform{
     background-color: #474B43;
@@ -19,6 +22,16 @@ button{
 #box{
     display: flex;
     align-items: center;
-    justify-content: right;
-    background-color: #768666;
+    justify-content: space-between;
+    background-color: #667557;
+    
+}
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2C3325;
+}
+.stil{
+    background-color: white;
 }
