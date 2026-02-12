@@ -17,7 +17,7 @@ button{
     width: 300px;
 }
 #myform{
-    background-color: #474B43;
+    background-color:#2C3325;
 }
 #box{
     display: flex;
@@ -34,4 +34,8 @@ header {
 }
 .stil{
     background-color: white;
+}
+
+#info {
+  white-space: pre-line;
 }

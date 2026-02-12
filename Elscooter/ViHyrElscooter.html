@@ -10,6 +10,11 @@
         
     </header>
 
+    <div>
+        <input type="date" id="datum">
+
+    </div>
+
 
     <div id="hero">
     <h1>Vi Hyr Dig en elScooter</h1>
@@ -36,19 +41,16 @@
         if(username){
             text.textContent = `Välkommen ${username}!`;
         } 
-
+        //Hämtar element
         const hyr = document.getElementById('hyr');
         const texta = document.getElementById('texta');
         const info = document.getElementById('info');
 
-        let idag = new Date().toLocaleDateString();
-        let klockslag = new Date().toLocaleTimeString();
-
+        let idag = new Date().toLocaleDateString(); // Hämtar dagens datum
+        let klockslag = new Date().toLocaleTimeString(); // Hämtar tiden
         let timerId = null;
         let hyrt = true;
         let sekunder = 0;
-        let a = 0;
-        
         let tid = document.getElementById('tid');
         const header = document.getElementById('header');
 
@@ -57,38 +59,36 @@
             header.classList.toggle('stil');
             
             texta.textContent = "datum av uthyrning " + idag + " klockan " +  klockslag;
-             hyr.textContent = "sluta hyra";
+             hyr.textContent = "Sluta hyra";
             
 
             if (hyrt) {
 
                 hyrt = false;
-                timerId = setInterval(function () {
+                timerId = setInterval(function () { //Startar en timer
                     sekunder ++;
                     tid.textContent = sekunder;
-                    a++;
-                   
 
                 }, 1000);
             } else {
                 clearInterval(timerId);
                 hyrt = true;
-                hyr.textContent = "hyr";
+                hyr.textContent = "Hyr";
                 
-                
-                //info.textContent = "t" + idag + " " + klockslag + " " + sekunder;
-                info.textContent = ` aaaaa ${idag}
-                ${klockslag} `
-                sekunder = 0;
+                info.textContent = `Kvitto
 
+                Datum: ${idag}
+                Klockslag: ${klockslag} 
+                Tid: ${sekunder}
+                
+                Kostnad: ${sekunder *1+50} kr`
+                
+                sekunder = 0;
 
             }
 
         })
 
-
-
-        
 
     </script>
     
