@@ -10,7 +10,7 @@
         
     </header>
 
-    <div id="hero">
+    
     <h1>Vi Hyr Dig en elScooter</h1>
     <h2 id="welcome"></h2>
     
@@ -19,24 +19,28 @@
         <p id="texta"></p> 
         <p id="tid"></p>
     </div>
-    </div>
    
 
     <button id="hyr">Hyr</button>
 
+    <div class="b">
+
     <p id="info"></p>
+    </div>
 
     <div>
     <p>Boka en elscooter</p>
     <input type="datetime-local" id="boka"> 
     <br>
     <button id="bokabtn">Boka</button>
+    <div clas="b">
     <p id="infoboka"> </p>
+    </div>
 
     </div>
 
     <script>
-
+        // tar ut URlen 
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById("welcome");
         let username = params.get('username');
@@ -54,11 +58,12 @@
         let hyrt = true;
         let sekunder = 0;
         let tid = document.getElementById('tid');
+        let toggle = false;
         const header = document.getElementById('header');
 
-        hyr.addEventListener('click', function(event){
+        hyr.addEventListener('click', function(event){ //lägger till en händelselyssnare som körs när click sker
 
-            header.classList.toggle('stil');
+            header.classList.toggle('style');
             
             texta.textContent = "datum av uthyrning " + idag + " klockan " +  klockslag;
              hyr.textContent = "Sluta hyra";
@@ -76,13 +81,21 @@
                 clearInterval(timerId);
                 hyrt = true;
                 hyr.textContent = "Hyr";
+                if(!toggle){
+                     info.classList.toggle('infostyle');
+                     toggle = true;
+
+                }
+
+               
                 
-                info.textContent = `Info om uthyrning
+                info.textContent = `Information om uthyrning
 
                 Datum: ${idag}
                 Klockslag: ${klockslag} 
                 Tid: ${sekunder}
                 
+
                 Kostnad: ${sekunder *1+50} kr`
                 
                 sekunder = 0;
@@ -91,14 +104,15 @@
 
         })
 
-        const boka = document.getElementById('boka').value;
+        
         const bokabtn = document.getElementById('bokabtn');
         let infoboka = document.getElementById('infoboka');
 
-        const aaa = new Date(boka);
+       
 
         bokabtn.addEventListener('click', function(event){
-            infoboka.textContent = `Du har bokat    ${aaa}`; /* + ${boka}  */
+            const boka = document.getElementById('boka').value;
+            infoboka.textContent = `Du har bokat    ${boka}`; 
 
         })
 

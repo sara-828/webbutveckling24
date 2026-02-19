@@ -1,5 +1,5 @@
 *{
-    background-color: #667557;
+    background-color: #9db684;
     font-family: Arial, Helvetica, sans-serif;
     color: #2C3325;
     padding: 10px;
@@ -8,22 +8,32 @@ h1, h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    /*background-color: #7EA05C; background-color: #768666;*/
     
-    
+}
+h1{
+    font-size: 3em;
 }
 button{
     border-color:#2C3325;
     width: 300px;
 }
 #myform{
-    background-color:#2C3325;
+    background-color:#546147;
+    border-radius: 10px;
+    width: 400px;
+    
+}
+#loggain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 #box{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #667557;
+   
     
 }
 header {
@@ -32,10 +42,20 @@ header {
     align-items: center;
     background-color: #2C3325;
 }
-.stil{
+.style{
     background-color: white;
 }
 
-#info {
+.infostyle {
   white-space: pre-line;
+  background-color: white;
+  border-radius: 10px;
+  width: 300px;
+  padding:20px;
+ 
+}
+.b{
+     display: flex;
+    align-items: center;
+    justify-content:center;
 }
